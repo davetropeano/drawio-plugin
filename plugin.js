@@ -1,11 +1,11 @@
-Draw.loadPlugin(function(ui) {
-  var gc = window || {};
-  gc.PluginUI = ui;
-  console.log(gc.PluginUI);
+function helloWorldAction = function() {
+    console.log(gc.PluginUI);
+}
 
-  function helloWorldAction() {
-      console.log(gc.PluginUI);
-  }
+Draw.loadPlugin(function(ui) {
+    var gc = window || {};
+    gc.PluginUI = ui;
+    console.log(gc.PluginUI);
 
     // Adds menu
     ui.menubar.addMenu('Hello, World Menu', function(menu, parent) {
