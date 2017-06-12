@@ -1,4 +1,4 @@
-function helloWorldAction = function() {
+function helloWorldAction() {
     console.log(gc.PluginUI);
 }
 
