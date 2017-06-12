@@ -1,4 +1,4 @@
-function helloWorldAction() {
+function menuHandler() {
     console.log(gc.PluginUI);
 }
 
@@ -9,7 +9,7 @@ Draw.loadPlugin(function(ui) {
 
     // Adds menu
     ui.menubar.addMenu('Hello, World Menu', function(menu, parent) {
-        ui.menus.addMenuItem(menu, 'helloWorldAction');
+        ui.menus.addMenuItem(menu, 'menuHandler');
     });
 
     // Reorders menubar
