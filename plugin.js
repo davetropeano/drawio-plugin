@@ -8,8 +8,8 @@ Draw.loadPlugin(function(ui) {
     ui.actions.addAction('menuHandler', function() {
         console.log(gc.PluginUI);
     });
-    
-    ui.menubar.addMenu('Hello, World Menu', function(menu, parent) {
+
+    ui.menubar.addMenu('Generate Template', function(menu, parent) {
         ui.menus.addMenuItem(menu, 'menuHandler');
     });
 
