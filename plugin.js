@@ -1,6 +1,3 @@
-function menuHandler() {
-    console.log(gc.PluginUI);
-}
 
 Draw.loadPlugin(function(ui) {
     var gc = window || {};
@@ -8,6 +5,10 @@ Draw.loadPlugin(function(ui) {
     console.log(gc.PluginUI);
 
     // Adds menu
+    ui.actions.addAction('menuHandler', function() {
+        console.log(gc.PluginUI);
+    });
+    
     ui.menubar.addMenu('Hello, World Menu', function(menu, parent) {
         ui.menus.addMenuItem(menu, 'menuHandler');
     });
