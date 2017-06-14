@@ -6,10 +6,10 @@ Draw.loadPlugin(function(ui) {
     ui.sidebar.addPalette('ibmcloud', 'IBM Cloud', true, function(content) {
 
         // content.appendChild(ui.sidebar.createVertexTemplate(null, 120, 60));
-        content.appendChild(ui.sidebar.createVertexTemplate('shape=image;type=ibmcloud.virtualserver;image=https://github.com/davetropeano/drawio-plugin/raw/master/images/virtual-server.png;resizable=0;movable=0;rotatable=0', 100, 100));
-        content.appendChild(ui.sidebar.createVertexTemplate('shape=image;type=ibmcloud.vlan;image=https://github.com/davetropeano/drawio-plugin/raw/master/images/vlan.png;resizable=0;movable=0;rotatable=0', 100, 100));
-        content.appendChild(ui.sidebar.createVertexTemplate('shape=image;type=ibmcloud.whisk;image=https://github.com/davetropeano/drawio-plugin/raw/master/images/whisk.png;resizable=0;movable=0;rotatable=0', 100, 100));
-        content.appendChild(ui.sidebar.createVertexTemplate('shape=image;type=ibmcloud.objectstorage;image=https://github.com/davetropeano/drawio-plugin/raw/master/images/object-storage.png;resizable=0;movable=0;rotatable=0', 100, 100));
+        content.appendChild(ui.sidebar.createVertexTemplate('shape=image;type=ibmcloud.virtualserver;image=https://github.com/davetropeano/drawio-plugin/raw/master/images/virtual-server.png;resizable=1;movable=1;rotatable=0', 100, 100));
+        content.appendChild(ui.sidebar.createVertexTemplate('shape=image;type=ibmcloud.vlan;image=https://github.com/davetropeano/drawio-plugin/raw/master/images/vlan.png;resizable=1;movable=1;rotatable=0', 100, 100));
+        content.appendChild(ui.sidebar.createVertexTemplate('shape=image;type=ibmcloud.whisk;image=https://github.com/davetropeano/drawio-plugin/raw/master/images/whisk.svg;resizable=1;movable=1;rotatable=0', 100, 100));
+        content.appendChild(ui.sidebar.createVertexTemplate('shape=image;type=ibmcloud.objectstorage;image=https://github.com/davetropeano/drawio-plugin/raw/master/images/object-storage.png;resizable=1;movable=1;rotatable=0', 100, 100));
     });
 
     // Collapses default sidebar entry and inserts this before
