@@ -5,11 +5,13 @@ Draw.loadPlugin(function(ui) {
     // Adds custom sidebar entry
     ui.sidebar.addPalette('ibmcloud', 'IBM Cloud', true, function(content) {
 
-        // content.appendChild(ui.sidebar.createVertexTemplate(null, 120, 60));
-        content.appendChild(ui.sidebar.createVertexTemplate('shape=image;type=ibmcloud.virtualserver;image=https://github.com/davetropeano/drawio-plugin/raw/master/images/virtual-server.png;resizable=1;movable=1;rotatable=0', 100, 100));
-        content.appendChild(ui.sidebar.createVertexTemplate('shape=image;type=ibmcloud.vlan;image=https://github.com/davetropeano/drawio-plugin/raw/master/images/vlan.png;resizable=1;movable=1;rotatable=0', 100, 100));
-        //content.appendChild(ui.sidebar.createVertexTemplate('shape=image;type=ibmcloud.whisk;image=https://github.com/davetropeano/drawio-plugin/raw/master/images/whisk.svg;resizable=1;movable=1;rotatable=0', 100, 100));
-        content.appendChild(ui.sidebar.createVertexTemplate('shape=image;type=ibmcloud.objectstorage;image=https://github.com/davetropeano/drawio-plugin/raw/master/images/object-storage.png;resizable=1;movable=1;rotatable=0', 100, 100));
+        // content.appendChild(ui.sidebar.createVertexTemplate(style, width, height));
+        // Sidebar.prototype.createVertexTemplate = function(style, width, height, value, title, showLabel, showTitle, allowCellsInserted)
+
+        content.appendChild(ui.sidebar.createVertexTemplate('shape=image;type=ibmcloud.virtualserver;image=https://github.com/davetropeano/drawio-plugin/raw/master/images/virtual-server.png;resizable=1;movable=1;rotatable=0', 100, 100, '', 'Virtual Server', true, true));
+        content.appendChild(ui.sidebar.createVertexTemplate('shape=image;type=ibmcloud.vlan;image=https://github.com/davetropeano/drawio-plugin/raw/master/images/vlan.png;resizable=1;movable=1;rotatable=0', 100, 100, '', 'VLAN', true, true));
+        //content.appendChild(ui.sidebar.createVertexTemplate('shape=image;type=ibmcloud.whisk;image=https://github.com/davetropeano/drawio-plugin/raw/master/images/whisk.svg;resizable=1;movable=1;rotatable=0', 100, 100 '', 'Whisk', true, true));
+        content.appendChild(ui.sidebar.createVertexTemplate('shape=image;type=ibmcloud.objectstorage;image=https://github.com/davetropeano/drawio-plugin/raw/master/images/object-storage.png;resizable=1;movable=1;rotatable=0', 100, 100 '', 'Object Storage', true, true));
     });
 
     // Collapses default sidebar entry and inserts this before
