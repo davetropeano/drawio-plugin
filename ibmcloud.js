@@ -33,9 +33,9 @@ terraform {
 # Provider setup
 #############################################################################
 	provider "ibmcloud" {
-	bluemix_api_key    = "${var.ibmcloud_bx_api_key}"
-	softlayer_username = "${var.ibmcloud_sl_username}"
-	softlayer_api_key  = "${var.ibmcloud_sl_api_key}"
+	bluemix_api_key    = "\${var.ibmcloud_bx_api_key}"
+	softlayer_username = "\${var.ibmcloud_sl_username}"
+	softlayer_api_key  = "\${var.ibmcloud_sl_api_key}"
 }
 `;
 	}
@@ -46,14 +46,14 @@ terraform {
 # Get the bluemix cloudfoundry space information for running cf apps
 #############################################################################
 data "ibmcloud_cf_org" "bx_org" {
-  org = "${var.org}"
+  org = "\${var.org}"
 }
 data "ibmcloud_cf_space" "bx_space" {
-  space = "${var.space}"
-  org   = "${var.org}"
+  space = "\${var.space}"
+  org   = "\${var.org}"
 }
 data "ibmcloud_cf_account" "bx_account" {
-  org_guid = "${data.ibmcloud_cf_org.bx_org.id}"
+  org_guid = "\${data.ibmcloud_cf_org.bx_org.id}"
 }
 `;
 	}
@@ -63,7 +63,7 @@ data "ibmcloud_cf_account" "bx_account" {
 resource "ibmcloud_infra_ssh_key" "ssh_key" {
   label = "sshkey-123"
   notes = ""
-  public_key = "${var.public_key}"
+  public_key = "\${var.public_key}"
 }
 `;
 	}
@@ -71,19 +71,19 @@ resource "ibmcloud_infra_ssh_key" "ssh_key" {
 	function vm() {
 		return `
 resource "ibmcloud_infra_virtual_guest" "web_node" {
-  count                = "${var.node_count}"
-  hostname             = "test-kelner-node-${count.index+1}"
+  count                = "\${var.node_count}"
+  hostname             = "test-kelner-node-\${count.index+1}"
   domain               = "test-kelner.com"
-  os_reference_code    = "${var.web_operating_system}"
-  datacenter           = "${var.datacenter}"
+  os_reference_code    = "\${var.web_operating_system}"
+  datacenter           = "\${var.datacenter}"
   private_network_only = false
-  cores                = "${var.vm_cores}"
-  memory               = "${var.vm_memory}"
+  cores                = "\${var.vm_cores}"
+  memory               = "\${var.vm_memory}"
   local_disk           = true
   ssh_key_ids = [
-    "${ibmcloud_infra_ssh_key.ssh_key.id}"
+    "\${ibmcloud_infra_ssh_key.ssh_key.id}"
   ]
-  tags = "${var.vm_tags}"
+  tags = "\${var.vm_tags}"
 }
 `;
 	}
@@ -91,10 +91,10 @@ resource "ibmcloud_infra_virtual_guest" "web_node" {
 	function bmx_service(name) {
 		var res = `
 resource "ibmcloud_cf_service_instance" "NAME" {
-  name       = "${var.NAME_name}"
-  space_guid = "${data.ibmcloud_cf_space.bx_space.id}"
-  service    = "${var.NAME_service}"
-  plan       = "${var.NAME_plan}"
+  name       = "\${var.NAME_name}"
+  space_guid = "\${data.ibmcloud_cf_space.bx_space.id}"
+  service    = "\${var.NAME_service}"
+  plan       = "\${var.NAME_plan}"
   tags       = [
     "schematics",
     "test"
@@ -185,10 +185,10 @@ variable "cloudant_key" {
 # Outputs
 #############################################################################
 output "node_ids" {
-    value = ["${ibmcloud_infra_virtual_guest.web_node.*.id}"]
+    value = ["\\${ibmcloud_infra_virtual_guest.web_node.*.id}"]
 }
 output "cloudant_db_id" {
-  value = "${ibmcloud_cf_service_instance.cloudant.id}"
+  value = "\\${ibmcloud_cf_service_instance.cloudant.id}"
 }
 `;
 	}
