@@ -26,11 +26,12 @@ Draw.loadPlugin(function(ui) {
 		var cells = graph.model.cells;
 		for (var key in cells) {
 			if (cells.hasOwnProperty(key)) {
-				var cell = cells[key];
-				var s = cells[key].getStyle()
-				var res = s.match(/ibmcloud.*;/g);
-				if (res.length) {
-					resources.push(res[0]);
+				var s = cells[key].getStyle();
+				if (s) {
+					var res = s.match(/ibmcloud.*;/g);
+					if (res.length) {
+						resources.push(res[0]);
+					}
 				}
 			}
 		}
