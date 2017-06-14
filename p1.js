@@ -8,10 +8,10 @@ Draw.loadPlugin(function(ui) {
         // content.appendChild(ui.sidebar.createVertexTemplate(style, width, height));
         // Sidebar.prototype.createVertexTemplate = function(style, width, height, value, title, showLabel, showTitle, allowCellsInserted)
 
-        content.appendChild(ui.sidebar.createVertexTemplate('shape=image;type=ibmcloud.virtualserver;image=https://github.com/davetropeano/drawio-plugin/raw/master/images/virtual-server.png;resizable=1;movable=1;rotatable=0', 100, 100, '', 'Virtual Server', true, true));
-        content.appendChild(ui.sidebar.createVertexTemplate('shape=image;type=ibmcloud.vlan;image=https://github.com/davetropeano/drawio-plugin/raw/master/images/vlan.png;resizable=1;movable=1;rotatable=0', 100, 100, '', 'VLAN', true, true));
-        content.appendChild(ui.sidebar.createVertexTemplate('shape=image;type=ibmcloud.whisk;image=https://raw.githubusercontent.com/davetropeano/drawio-plugin/master/images/whisk.svg;resizable=1;movable=1;rotatable=0', 100, 100, '', 'Whisk', true, true));
-        content.appendChild(ui.sidebar.createVertexTemplate('shape=image;type=ibmcloud.objectstorage;image=https://github.com/davetropeano/drawio-plugin/raw/master/images/object-storage.png;resizable=1;movable=1;rotatable=0', 100, 100, '', 'Object Storage', true, true));
+        content.appendChild(ui.sidebar.createVertexTemplate('shape=image;type=ibmcloud.virtualserver;image=http://davetropeano.com/images/images/virtual-server.png;resizable=1;movable=1;rotatable=0', 100, 100, '', 'Virtual Server', true, true));
+        content.appendChild(ui.sidebar.createVertexTemplate('shape=image;type=ibmcloud.vlan;image=http://davetropeano.com/images/images/vlan.png;resizable=1;movable=1;rotatable=0', 100, 100, '', 'VLAN', true, true));
+        content.appendChild(ui.sidebar.createVertexTemplate('shape=image;type=ibmcloud.whisk;image=http://davetropeano.com/images/whisk.svg;resizable=1;movable=1;rotatable=0', 100, 100, '', 'Whisk', true, true));
+        content.appendChild(ui.sidebar.createVertexTemplate('shape=image;type=ibmcloud.objectstorage;image=http://davetropeano.com/images/images/object-storage.png;resizable=1;movable=1;rotatable=0', 100, 100, '', 'Object Storage', true, true));
     });
 
     // Collapses default sidebar entry and inserts this before
