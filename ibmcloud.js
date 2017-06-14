@@ -201,7 +201,7 @@ output "cloudant_db_id" {
 				var s = cells[key].getStyle();
 				if (s) {
 					var res = s.match(/ibmcloud.*?;/);
-					if (res.length) {
+					if (res && res.length) {
 						resources.push(res[0]);
 					}
 				}
