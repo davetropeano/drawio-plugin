@@ -21,6 +21,22 @@ Draw.loadPlugin(function(ui) {
 	var graph = ui.editor.graph;
     window.graph = ui.editor.graph;
 
+	function generateTemplate() {
+		var resources = [];
+		var cells = graph.model.cells;
+		for (var key in cells) {
+			if (cells.hasOwnProperty(key)) {
+				var cell = cells[key];
+				var s = cells[key].getStyle()
+				var res = s.match(/ibmcloud.*;/g);
+				if (res.length) {
+					resources.push(res[0]);
+				}
+			}
+		}
+
+		return JSON.stringify(res);
+	}
     // STEP 1: Create a textarea to hold the rendered text
 	var div = document.createElement('div');
 	div.style.userSelect = 'none';
@@ -28,18 +44,17 @@ Draw.loadPlugin(function(ui) {
 	div.style.padding = '10px';
 	div.style.height = '100%';
 
-	var sqlInput = document.createElement('textarea');
-	sqlInput.style.height = '200px';
-	sqlInput.style.width = '100%';
-  	sqlInput.value = 'CREATE TABLE Persons\n(\nPersonID int,\nLastName varchar(255),\n' +
-  		'FirstName varchar(255),\nAddress varchar(255),\nCity varchar(255)\n);';
+	var tfTemplate = document.createElement('textarea');
+	tfTemplate.style.height = '200px';
+	tfTemplate.style.width = '100%';
+  	tfTemplate.value = '';
 	mxUtils.br(div);
-	div.appendChild(sqlInput);
+	div.appendChild(tfTemplate);
 	
 	// Extends Extras menu
-	mxResources.parse('fromSql=From SQL');
+	mxResources.parse('ibmcloud=IBM Cloud Schematics Template');
 
-	var wnd = new mxWindow(mxResources.get('fromSql'), div, document.body.offsetWidth - 480, 140, 320, 300, true, true);
+	var wnd = new mxWindow(mxResources.get('ibmcloud'), div, document.body.offsetWidth - 480, 140, 320, 300, true, true);
 	wnd.destroyOnClose = false;
 	wnd.setMaximizable(false);
 	wnd.setResizable(false);
@@ -55,12 +70,13 @@ Draw.loadPlugin(function(ui) {
 	div.appendChild(btn);
 
     // Adds action
-    ui.actions.addAction('fromSql', function()
+    ui.actions.addAction('ibmcloud', function()
     {
 		wnd.setVisible(!wnd.isVisible());
 		
 		if (wnd.isVisible()) {
-			sqlInput.focus();	
+			tfTemplate.value = generateTemplate();
+			tfTemplate.focus();	
 		}
     });
 	
@@ -70,6 +86,6 @@ Draw.loadPlugin(function(ui) {
 	theMenu.funct = function(menu, parent)
 	{
 		oldMenu.apply(this, arguments);
-		ui.menus.addMenuItems(menu, ['fromSql'], parent);
+		ui.menus.addMenuItems(menu, ['ibmcloud'], parent);
 	};
 });
