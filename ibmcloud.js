@@ -185,10 +185,10 @@ variable "cloudant_key" {
 # Outputs
 #############################################################################
 output "node_ids" {
-    value = ["\\${ibmcloud_infra_virtual_guest.web_node.*.id}"]
+    value = ["\${ibmcloud_infra_virtual_guest.web_node.*.id}"]
 }
 output "cloudant_db_id" {
-  value = "\\${ibmcloud_cf_service_instance.cloudant.id}"
+  value = "\${ibmcloud_cf_service_instance.cloudant.id}"
 }
 `;
 	}
