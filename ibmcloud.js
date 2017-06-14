@@ -28,7 +28,7 @@ Draw.loadPlugin(function(ui) {
 			if (cells.hasOwnProperty(key)) {
 				var s = cells[key].getStyle();
 				if (s) {
-					var res = s.match(/ibmcloud.*;/g);
+					var res = s.match(/ibmcloud.*;/);
 					if (res.length) {
 						resources.push(res[0]);
 					}
@@ -36,7 +36,7 @@ Draw.loadPlugin(function(ui) {
 			}
 		}
 
-		return JSON.stringify(res);
+		return JSON.stringify(resources);
 	}
     // STEP 1: Create a textarea to hold the rendered text
 	var div = document.createElement('div');
