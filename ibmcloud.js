@@ -232,7 +232,7 @@ output "cloudant_db_id" {
 	div.style.height = '100%';
 
 	var tfTemplate = document.createElement('textarea');
-	tfTemplate.style.height = '600px';
+	tfTemplate.style.height = '550px';
 	tfTemplate.style.width = '100%';
 	tfTemplate.style.setProperty('font-family', 'Monaco,CourierNew,Courier');
 	tfTemplate.style.setProperty('font-size', '16px');
@@ -243,7 +243,7 @@ output "cloudant_db_id" {
 	// Extends Extras menu
 	mxResources.parse('ibmcloud=Generate IBM Cloud Schematics Template');
 
-	var wnd = new mxWindow(mxResources.get('ibmcloud'), div, document.body.offsetWidth-600, 140, 350, 650, true, true);
+	var wnd = new mxWindow(mxResources.get('ibmcloud'), div, document.body.offsetWidth/3, document.body.offsetHeight/3, 350, 650, true, true);
 	wnd.destroyOnClose = false;
 	wnd.setMaximizable(false);
 	wnd.setResizable(false);
