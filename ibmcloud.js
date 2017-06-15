@@ -243,7 +243,7 @@ output "cloudant_db_id" {
 	// Extends Extras menu
 	mxResources.parse('ibmcloud=Generate IBM Cloud Schematics Template');
 
-	var wnd = new mxWindow(mxResources.get('ibmcloud'), div, document.body.offsetWidth-600, 140, 600, 600, true, true);
+	var wnd = new mxWindow(mxResources.get('ibmcloud'), div, document.body.offsetWidth-600, 140, 350, 350, true, true);
 	wnd.destroyOnClose = false;
 	wnd.setMaximizable(false);
 	wnd.setResizable(false);
